@@ -528,14 +528,30 @@
                                 「於繁複中建立秩序，為建築生命週期注入智慧與韌性。」
                             </h2>
                             <div className="flex flex-col md:flex-row justify-center gap-8 mb-12">
-                                <div className="flex items-center justify-center gap-3">
+                                <button 
+                                    onClick={() => {
+                                        const phone = "+886-920-888-891";
+                                        const textArea = document.createElement("textarea");
+                                        textArea.value = phone;
+                                        document.body.appendChild(textArea);
+                                        textArea.select();
+                                        try {
+                                            document.execCommand('copy');
+                                            alert("電話號碼已複製：" + phone);
+                                        } catch (err) {
+                                            console.error('複製失敗', err);
+                                        }
+                                        document.body.removeChild(textArea);
+                                    }}
+                                    className="flex items-center justify-center gap-3 hover:text-white transition cursor-pointer bg-transparent border-none p-0 text-base font-normal text-slate-300"
+                                >
                                     <Phone className="w-5 h-5 text-indigo-400" />
                                     <span>+886-920-888-891</span>
-                                </div>
-                                <div className="flex items-center justify-center gap-3">
+                                </button>
+                                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=ccl.aileen@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 hover:text-white transition cursor-pointer">
                                     <Mail className="w-5 h-5 text-indigo-400" />
                                     <span>ccl.aileen@gmail.com</span>
-                                </div>
+                                </a>
                                 <a href="https://line.me/ti/p/4VTcuYdqBP" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 hover:text-white transition cursor-pointer">
                                     <span className="font-bold text-indigo-400 text-lg">LINE</span>
                                     <span>ccl_aileen</span>
